@@ -15,12 +15,12 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
   const location = useLocation();
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: 'home', path: '/dashboard' },
-    { id: 'forecast', label: '需要予測', icon: 'chart', path: '/forecast' },
-    { id: 'order', label: '発注推奨', icon: 'order', path: '/order' },
-    { id: 'exception', label: 'アラート', icon: 'alert', path: '/exception' },
+    { id: 'dashboard', label: 'Dashboard', icon: 'home', path: '/' },
+    { id: 'forecast', label: '需要予測', icon: 'chart', path: '/demand-forecast' },
+    { id: 'order', label: '発注推奨', icon: 'order', path: '/order-recommendation' },
+    { id: 'procurement', label: '仕入れ提案', icon: 'lightbulb', path: '/procurement-proposal' },
     { id: 'inventory', label: '在庫最適化', icon: 'inventory', path: '/inventory' },
-    { id: 'supplier', label: '契約最適化', icon: 'supplier', path: '/supplier' },
+    { id: 'supplier', label: '契約最適化', icon: 'supplier', path: '/analytics' },
     { id: 'settings', label: '設定', icon: 'settings', path: '/settings' },
   ];
 
@@ -60,11 +60,10 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
             <path d="M9 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2h-4M9 11V9a2 2 0 114 0v2M9 11h6"/>
           </svg>
         );
-      case 'alert':
+      case 'lightbulb':
         return (
           <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-            <path d="M12 8v4M12 16h.01"/>
+            <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
           </svg>
         );
       case 'inventory':

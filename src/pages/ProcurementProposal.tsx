@@ -16,6 +16,7 @@ interface ProposalItem {
   potentialRevenue: number;
   riskLevel: 'low' | 'medium' | 'high';
   priority: number;
+  targetCustomer: string;
 }
 
 /**
@@ -26,6 +27,7 @@ const ProcurementProposal: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [selectedRisk, setSelectedRisk] = useState<string>('all');
+  const [selectedCustomerType, setSelectedCustomerType] = useState<string>('all');
 
   // モックデータ - 実際のAPIから取得
   const proposalData: ProposalItem[] = [
@@ -42,7 +44,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '特売中',
       potentialRevenue: 89000,
       riskLevel: 'low',
-      priority: 95
+      priority: 95,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '2',
@@ -57,7 +60,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 156000,
       riskLevel: 'medium',
-      priority: 88
+      priority: 88,
+      targetCustomer: '単身世帯'
     },
     {
       id: '3',
@@ -72,7 +76,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 234000,
       riskLevel: 'low',
-      priority: 92
+      priority: 92,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '4',
@@ -87,7 +92,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 67000,
       riskLevel: 'high',
-      priority: 75
+      priority: 75,
+      targetCustomer: '共働き世帯'
     },
     {
       id: '5',
@@ -102,7 +108,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '特売中',
       potentialRevenue: 198000,
       riskLevel: 'medium',
-      priority: 85
+      priority: 85,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '6',
@@ -117,7 +124,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 78000,
       riskLevel: 'low',
-      priority: 82
+      priority: 82,
+      targetCustomer: 'シニア層'
     },
     {
       id: '7',
@@ -132,7 +140,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 145000,
       riskLevel: 'medium',
-      priority: 90
+      priority: 90,
+      targetCustomer: 'シニア層'
     },
     {
       id: '8',
@@ -147,7 +156,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '特売中',
       potentialRevenue: 189000,
       riskLevel: 'low',
-      priority: 87
+      priority: 87,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '9',
@@ -162,7 +172,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 267000,
       riskLevel: 'low',
-      priority: 94
+      priority: 94,
+      targetCustomer: '共働き世帯'
     },
     {
       id: '10',
@@ -177,7 +188,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 98000,
       riskLevel: 'medium',
-      priority: 79
+      priority: 79,
+      targetCustomer: '学生'
     },
     {
       id: '11',
@@ -192,7 +204,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 56000,
       riskLevel: 'high',
-      priority: 73
+      priority: 73,
+      targetCustomer: '共働き世帯'
     },
     {
       id: '12',
@@ -207,7 +220,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '特売中',
       potentialRevenue: 178000,
       riskLevel: 'medium',
-      priority: 86
+      priority: 86,
+      targetCustomer: '単身世帯'
     },
     {
       id: '13',
@@ -222,7 +236,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 201000,
       riskLevel: 'low',
-      priority: 91
+      priority: 91,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '14',
@@ -237,7 +252,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 156000,
       riskLevel: 'low',
-      priority: 83
+      priority: 83,
+      targetCustomer: '単身世帯'
     },
     {
       id: '15',
@@ -252,7 +268,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 89000,
       riskLevel: 'medium',
-      priority: 78
+      priority: 78,
+      targetCustomer: '共働き世帯'
     },
     {
       id: '16',
@@ -267,7 +284,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 72000,
       riskLevel: 'medium',
-      priority: 80
+      priority: 80,
+      targetCustomer: 'ファミリー層'
     },
     {
       id: '17',
@@ -282,7 +300,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '特売中',
       potentialRevenue: 223000,
       riskLevel: 'medium',
-      priority: 89
+      priority: 89,
+      targetCustomer: '単身世帯'
     },
     {
       id: '18',
@@ -297,7 +316,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 189000,
       riskLevel: 'low',
-      priority: 84
+      priority: 84,
+      targetCustomer: 'シニア層'
     },
     {
       id: '19',
@@ -312,7 +332,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '新商品',
       potentialRevenue: 167000,
       riskLevel: 'low',
-      priority: 88
+      priority: 88,
+      targetCustomer: '学生'
     },
     {
       id: '20',
@@ -327,7 +348,8 @@ const ProcurementProposal: React.FC = () => {
       promotionStatus: '通常',
       potentialRevenue: 134000,
       riskLevel: 'low',
-      priority: 81
+      priority: 81,
+      targetCustomer: 'ファミリー層'
     }
   ];
 
@@ -365,11 +387,13 @@ const ProcurementProposal: React.FC = () => {
   const categories = ['all', '青果', '惣菜', '日配', '冷凍', 'パン'];
   const regions = ['all', '関東', '関西', '中部', '九州', '全国'];
   const riskLevels = ['all', 'low', 'medium', 'high'];
+  const customerTypes = ['all', 'ファミリー層', '単身世帯', 'シニア層', '共働き世帯', '学生'];
 
   const filteredData = proposalData.filter(item => {
     return (selectedCategory === 'all' || item.category === selectedCategory) &&
            (selectedRegion === 'all' || item.region === selectedRegion) &&
-           (selectedRisk === 'all' || item.riskLevel === selectedRisk);
+           (selectedRisk === 'all' || item.riskLevel === selectedRisk) &&
+           (selectedCustomerType === 'all' || item.targetCustomer === selectedCustomerType);
   });
 
   const columns = [
@@ -489,7 +513,7 @@ const ProcurementProposal: React.FC = () => {
       {/* フィルター */}
       <div className="bg-white rounded-lg shadow-elevation-2 p-6">
         <h3 className="text-lg font-semibold mb-4 font-noto">フィルター条件</h3>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">カテゴリ</label>
             <select
@@ -530,6 +554,20 @@ const ProcurementProposal: React.FC = () => {
                   {risk === 'all' ? 'すべて' : 
                    risk === 'low' ? '低リスク' :
                    risk === 'medium' ? '中リスク' : '高リスク'}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">購買者属性</label>
+            <select
+              value={selectedCustomerType}
+              onChange={(e) => setSelectedCustomerType(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              {customerTypes.map(customerType => (
+                <option key={customerType} value={customerType}>
+                  {customerType === 'all' ? 'すべて' : customerType}
                 </option>
               ))}
             </select>

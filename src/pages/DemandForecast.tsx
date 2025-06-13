@@ -186,7 +186,7 @@ const DemandForecast: React.FC = () => {
                     <div className="flex items-center justify-between">
                       <span>{row.skuName}</span>
                       <button
-                        onClick={() => navigate(`/forecast/product/${row.sku}`)}
+                        onClick={() => navigate(`/demand-forecast/product/${row.sku}`)}
                         className="ml-2 px-2 py-1 text-xs bg-primary text-white rounded hover:bg-primary/80 transition-colors"
                         title="詳細予測を見る"
                       >

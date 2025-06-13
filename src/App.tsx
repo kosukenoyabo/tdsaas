@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import DemandForecast from './pages/DemandForecast';
 import OrderRecommendation from './pages/OrderRecommendation';
 import ProcurementProposal from './pages/ProcurementProposal';
+import ProductDetailForecast from './pages/ProductDetailForecast';
 import PlaceholderPage from './pages/PlaceholderPage';
 
 /**
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/demand-forecast" element={<DemandForecast />} />
+          <Route path="/demand-forecast/product/:productId?" element={<ProductDetailForecast />} />
           <Route path="/order-recommendation" element={<OrderRecommendation />} />
           <Route path="/procurement-proposal" element={<ProcurementProposal />} />
           <Route path="/inventory" element={<PlaceholderPage title="在庫最適化" />} />

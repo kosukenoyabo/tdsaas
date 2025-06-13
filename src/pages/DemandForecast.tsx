@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useNavigate } from 'react-router-dom';
 import { scenarios, ScenarioData } from '../mock';
 
 interface ForecastRow {
@@ -15,6 +16,7 @@ interface ForecastRow {
  * シナリオ比較、14日先予測バーチャート、編集可能グリッドを表示します
  */
 const DemandForecast: React.FC = () => {
+  const navigate = useNavigate();
   const [activeScenario, setActiveScenario] = useState<string>('baseline');
   const [forecastData, setForecastData] = useState<ForecastRow[]>([
     {
@@ -181,7 +183,16 @@ const DemandForecast: React.FC = () => {
                     {row.sku}
                   </td>
                   <td className="px-4 py-3 text-sm text-neutral-800 font-noto">
-                    {row.skuName}
+                    <div className="flex items-center justify-between">
+                      <span>{row.skuName}</span>
+                      <button
+                        onClick={() => navigate(`/forecast/product/${row.sku}`)}
+                        className="ml-2 px-2 py-1 text-xs bg-primary text-white rounded hover:bg-primary/80 transition-colors"
+                        title="詳細予測を見る"
+                      >
+                        詳細
+                      </button>
+                    </div>
                   </td>
                   {row.forecast.map((value, colIndex) => (
                     <td key={colIndex} className="px-3 py-3 text-center">

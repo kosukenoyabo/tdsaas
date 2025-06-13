@@ -5,6 +5,7 @@ import Topbar from './components/Topbar';
 import Dashboard from './pages/Dashboard';
 import DemandForecast from './pages/DemandForecast';
 import OrderRecommendation from './pages/OrderRecommendation';
+import ProductDetailForecast from './pages/ProductDetailForecast';
 
 /**
  * メインアプリケーションコンポーネント
@@ -27,6 +28,7 @@ const App: React.FC = () => {
               {/* メインページ */}
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/forecast" element={<DemandForecast />} />
+              <Route path="/forecast/product/:productId?" element={<ProductDetailForecast />} />
               <Route path="/order" element={<OrderRecommendation />} />
               
               {/* 未実装ページ用のプレースホルダー */}

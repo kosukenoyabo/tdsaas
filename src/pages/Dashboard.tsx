@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import KpiCard from '../components/KpiCard';
-import { kpiData, forecastChartData, heatmapData, KpiData, ForecastData, HeatmapData } from '../mock';
+import { kpiData, forecastChartData, heatmapData, KpiData, HeatmapData } from '../mock';
 
 /**
  * ダッシュボードページコンポーネント
